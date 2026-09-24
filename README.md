@@ -1,6 +1,8 @@
 # Noether–Lefschetz
 
-Author of this record: Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman)).
+**Author:** Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman))
+**Copyright:** (c) 2026 Benjamin Stanley Frohman.
+**License:** Apache-2.0. See `LICENSE` and `COPYRIGHT`.
 
 This repository is **not** a proof of the Hodge conjecture.
 It records the Noether–Lefschetz theorem as a separate statement.
@@ -47,16 +49,18 @@ class of \(X \cap \mathbb{P}^3\).
   can have extra \((2,2)\) classes. Writing those classes as algebraic cycles
   is the Hodge conjecture. That object lives in
   [BenFrohman/HODGE](https://github.com/BenFrohman/HODGE),
-  as `HodgeConjecture.general_fourfold` plus the guarded axiom
-  `construct_of_codim_ge_two`.
+  as `HodgeConjecture.general_fourfold`.
 - NL is not a constructor \(\gamma \mapsto (Z_i, a_i)\) for extra classes.
   It says those extra classes are absent on a very general high-degree host.
 
-## Relation to HODGE
+## Sister repositories
 
-| Repo | Sentence |
-|---|---|
-| This repo | Very general high-degree \(X\): \(\mathrm{Hdg}^2 = \mathbb{Q} h^2\) |
-| [HODGE](https://github.com/BenFrohman/HODGE) | Every Hodge class on a fourfold is algebraic (open) |
+- [HODGE](https://github.com/BenFrohman/HODGE)
+- [FermatPlanes](https://github.com/BenFrohman/FermatPlanes)
+- [CubicFourfold](https://github.com/BenFrohman/CubicFourfold)
+- [StandardConjectures](https://github.com/BenFrohman/StandardConjectures)
+- [TateConjecture](https://github.com/BenFrohman/TateConjecture)
+- [DerivedCategories](https://github.com/BenFrohman/DerivedCategories)
+- [HODGE-DISPROOF](https://github.com/BenFrohman/HODGE-DISPROOF)
 
 Do not import this statement into `Hodge.lean` as a discharge of Clay.
