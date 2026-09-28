@@ -7,7 +7,11 @@ Authors: Benjamin Stanley Frohman (@BenFrohman)
 # Noether–Lefschetz as a named sentence
 
 Not the Hodge conjecture. Literature, not a proof in this file.
-Very general high-degree fourfold in ℙ⁵: no extra Hodge class.
+
+Geometric range: a very general smooth hypersurface of degree `d ≥ 3` in `ℙ⁵`
+has no extra rational Hodge class. Degree `2` fails (quadric fourfolds contain planes).
+The axiom below keeps the stricter sufficient hypothesis `6 ≤ degree`.
+That `6` is not claimed to be sharp.
 -/
 
 namespace NoetherLefschetz
@@ -19,13 +23,12 @@ structure Hypersurface where
 /-- Extra means not a rational multiple of h². Not constantly `False`. -/
 axiom ExtraClass (X : Hypersurface) : Prop
 
-/-- Named literature statement. d ≥ 6 in ℙ⁵, very general ⇒ no extra class. -/
+/-- Sufficient literature bound. Not the sharp threshold `d ≥ 3`. -/
 axiom noether_lefschetz (X : Hypersurface)
     (hd : 6 ≤ X.degree) (hvg : X.isVeryGeneral) :
     ¬ ExtraClass X
 
-/-- Vacuous extra-class problem on that locus: extra + NL hypotheses ⇒ False.
-Uses `isVeryGeneral` and `degree`. -/
+/-- Vacuous extra-class problem on that locus: extra + these hypotheses ⇒ False. -/
 theorem no_extra_on_nl_locus (X : Hypersurface)
     (hd : 6 ≤ X.degree) (hvg : X.isVeryGeneral)
     (hExtra : ExtraClass X) : False :=
