@@ -17,24 +17,50 @@ does three things and only three:
 2. Says that identifier has type `Hypersurface → Prop`.
 3. Unfolds to the implication written on the right.
 
-The kernel checks that the right-hand side is a well-formed proposition.
-That is syntax and typing. It is not Beauville, Deligne, or Noether–Lefschetz.
+That is the same kind of check as accepting the English sentence
+“every even number greater than two is a sum of two primes.”
+Writing the sentence does not prove Goldbach.
 
-A proof of the geometric sentence would be a term
+## What a proof would look like
+
+```lean
+theorem noether_lefschetz
+    (X : Hypersurface)
+    (hd : 3 ≤ X.degree)
+    (hvg : X.isVeryGeneral) :
+    ¬ ExtraClass X := …
+```
+
+or equivalently
 
 ```lean
 theorem noether_lefschetz (X : Hypersurface) :
     VanishingOfExtraClasses X := …
 ```
 
-with `…` filled by monodromy density plus invariant cycles. That term is not
-in this repository.
+The `…` would have to be Beauville (monodromy dense in the orthogonal group
+of vanishing cohomology) plus Deligne (a rational Hodge class on a very
+general fibre is monodromy-invariant). Those arguments are not in this file.
 
-On branch `prop-not-axiom`, `ExtraClass` is a dummy (`degree = 0 ∧ degree ≠ 0`).
-`vanishing_of_dummy` is a tautology from `P ∧ ¬P`. It compiles. It is not the
-geometry.
+## Dummy removed
 
-`HodgeLocusPosAlgebraic d` is the predicate `6 ≤ d`. Compiling it does not prove
-Baldi–Klingler–Ullmo.
+`ExtraClass` is no longer `degree = 0 ∧ degree ≠ 0`.
+`vanishing_of_dummy` is deleted.
+`hasExtraClass` is a field of `Hypersurface`.
+`no_extra_on_nl_locus` is an implication from a hypothesis `hV`, not a proof
+of `hV`.
 
-See [STATEMENT.md](STATEMENT.md) and `NoetherLefschetz/Basic.lean`.
+## Side by side
+
+| Object | Status |
+| --- | --- |
+| `def VanishingOfExtraClasses` | well-typed sentence |
+| `def HodgeLocusPosAlgebraic` | well-typed sentence (`6 ≤ d`) |
+| `theorem vanishing_of_dummy` | **removed** |
+| Beauville density | literature, not a Lean term |
+| Deligne invariant cycles | literature, not a Lean term |
+| Noether–Lefschetz for actual fourfolds | unproved in this file |
+
+The file typechecks as a glossary. The geometry still lives in papers.
+
+See [MATHLIB_MOVE.md](MATHLIB_MOVE.md).

@@ -6,46 +6,45 @@ Authors: Benjamin Stanley Frohman (@BenFrohman)
 /-!
 # Noether–Lefschetz as named propositions
 
-Not the Hodge conjecture. No `axiom`. No `sorry`.
-`VanishingOfExtraClasses` and `HodgeLocusPosAlgebraic` are sentences.
-A term of either sentence is a literature citation, not a kernel proof of
-Beauville, Deligne, or Baldi–Klingler–Ullmo.
+Not the Hodge conjecture. No `axiom`. No `sorry`. No dummy `P ∧ ¬P`.
+`VanishingOfExtraClasses` is a sentence. A term of that sentence would be
+Beauville (monodromy dense in the orthogonal group of vanishing cohomology)
+plus Deligne (a rational Hodge class on a very general fibre is
+monodromy-invariant). Those arguments are not in this file.
 -/
 
 namespace NoetherLefschetz
 
+/-- A named hypersurface in ℙ⁵, as a record.
+`hasExtraClass` is the geometric predicate “Hdg² larger than ℚ h²”.
+It is a field, not `degree = 0 ∧ degree ≠ 0`. -/
 structure Hypersurface where
   degree : ℕ
   isVeryGeneral : Prop
+  hasExtraClass : Prop
 
-/-- Extra means not a rational multiple of h².
-An uninterpreted predicate: a parameter, not a computation. -/
+/-- Extra means not a rational multiple of h². -/
 def ExtraClass (X : Hypersurface) : Prop :=
-  X.isVeryGeneral ∧ X.degree = 0 ∧ X.degree ≠ 0
-
-/-- Always false. A dummy so the file has no axiom and no sorry.
-The geometric predicate “Hdg² larger than ℚ h²” is not computed here. -/
-theorem extraClass_false (X : Hypersurface) : ¬ ExtraClass X := by
-  intro h
-  exact h.2.2 h.2.1
+  X.hasExtraClass
 
 /-- Vanishing sentence (monodromy + Deligne).
-Very general smooth hypersurface in ℙ⁵ of degree ≥ 3, not a quadric. -/
+Very general smooth hypersurface in ℙ⁵ of degree ≥ 3.
+Fails for quadrics: every smooth quadric fourfold contains planes. -/
 def VanishingOfExtraClasses (X : Hypersurface) : Prop :=
   3 ≤ X.degree → X.isVeryGeneral → ¬ ExtraClass X
 
-/-- BKU sentence. Level ≥ 3 for fourfolds in ℙ⁵ starts at d ≥ 6.
-Positive-period Hodge locus algebraic and atypical. Different from vanishing. -/
+/-- BKU sentence, as a name only.
+The right-hand side is the inequality `6 ≤ d`, not the Invent. Math. proof. -/
 def HodgeLocusPosAlgebraic (d : ℕ) : Prop :=
   6 ≤ d
 
-/-- The vanishing proposition holds for this dummy ExtraClass,
-because ExtraClass is identically false. Not Beauville. -/
-theorem vanishing_of_dummy (X : Hypersurface) :
-    VanishingOfExtraClasses X := fun _ _ h => extraClass_false X h
+/-- Former axiom name, now a proposition.
+A term would be Beauville + Deligne. -/
+def noether_lefschetz (X : Hypersurface) : Prop :=
+  VanishingOfExtraClasses X
 
 /-- Implication from the named vanishing sentence.
-Does not prove Noether–Lefschetz in geometry. -/
+Does not inhabit that sentence. -/
 theorem no_extra_on_nl_locus (X : Hypersurface)
     (hV : VanishingOfExtraClasses X)
     (hd : 3 ≤ X.degree) (hvg : X.isVeryGeneral)
