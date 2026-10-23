@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under Apache-2.0. -->
 # Statement (honest scope)
 
 **Theorem (Noether–Lefschetz, fourfold form used in the HODGE notes).**
