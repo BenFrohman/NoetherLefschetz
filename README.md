@@ -1,5 +1,7 @@
 # Noether–Lefschetz
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652976.svg)](https://doi.org/10.5281/zenodo.23652976) [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
 **Author:** Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman))
 **Copyright:** (c) 2026 Benjamin Stanley Frohman.
 **License:** Apache-2.0. See `LICENSE` and `COPYRIGHT`.
@@ -64,3 +66,14 @@ class of \(X \cap \mathbb{P}^3\).
 - [HODGE-DISPROOF](https://github.com/BenFrohman/HODGE-DISPROOF)
 
 Do not import this statement into `Hodge.lean` as a discharge of Clay.
+
+---
+## Archival DOI & Cryptographic Provenance
+
+- **Dedicated 1-to-1 Zenodo DOI:** [10.5281/zenodo.23652976](https://doi.org/10.5281/zenodo.23652976)
+- **Author:** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718))
+- **License:** Apache License, Version 2.0 (`Copyright (c) 2026 Benjamin Stanley Frohman`)
+- **Earliest Commit Provenance:** `64b4d7bb85ecc51e416ba5bc3a6b53a54bb735e3` (2026-09-21 04:24:19 AM CDT (UTC-5))
+- **SealGuard SHA-256 Merkle Root:** `6b5b8b461fbf3db803aaac4c7f9cd438d9df9dde6444c3992ddb72350f639d9a` (`PROVENANCE_MERKLE_ROOT.json`)
+- **Titan Audit Certificate:** `audit/TITAN_AUDIT_CERTIFICATE.json` (Ed25519 key `b428fb72676f1c52`)
+- **Scope & Scientific Boundary:** This repository formalizes degree thresholds and Noether-Lefschetz structural specifications. It does not claim a proof or disproof of the Clay Hodge Conjecture.

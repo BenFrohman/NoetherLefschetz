@@ -1,0 +1,28 @@
+{
+  "title": "Noether-Lefschetz Loci, Monodromy Representations, and Degree Thresholds for Hypersurfaces in Lean 4",
+  "upload_type": "software",
+  "description": "Standalone Lean 4 formalization (`NoetherLefschetz/Basic.lean`, `NoetherLefschetz/Spec.lean`) and technical documentation (`docs/MONODROMY.md`, `docs/DEGREE_THRESHOLDS.md`, `docs/COUNTEREXAMPLES_CONTEXT.md`) of Noether-Lefschetz degree thresholds and generic Picard/Hodge rank restrictions for smooth projective hypersurfaces. This repository formalizes degree thresholds and Noether-Lefschetz structural specifications. It does not claim a proof or disproof of the Clay Hodge Conjecture. Copyright (c) 2026 Benjamin Stanley Frohman. Licensed under the Apache License, Version 2.0.",
+  "creators": [
+    {
+      "name": "Frohman, Benjamin Stanley",
+      "orcid": "0009-0006-7068-3718"
+    }
+  ],
+  "license": "Apache-2.0",
+  "access_right": "open",
+  "keywords": [
+    "Lean 4",
+    "Noether-Lefschetz theorem",
+    "Monodromy",
+    "Projective hypersurfaces",
+    "Hodge classes",
+    "Griffiths transversality"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/BenFrohman/NoetherLefschetz",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

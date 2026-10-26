@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+
+\title{\textbf{Noether-Lefschetz Loci, Monodromy Representations, and Degree Thresholds for Hypersurfaces in Lean 4}}
+\author{Benjamin Stanley Frohman\\
+\small ORCID: \href{https://orcid.org/0009-0006-7068-3718}{0009-0006-7068-3718} \quad|\quad
+GitHub: \href{https://github.com/BenFrohman/NoetherLefschetz}{\texttt{BenFrohman/NoetherLefschetz}}\\
+\small Dedicated 1-to-1 Zenodo DOI: \href{https://doi.org/10.5281/zenodo.23652976}{\texttt{10.5281/zenodo.23652976}}}
+\date{Earliest Commit Provenance: 2026-09-21 04:24:19 AM CDT (UTC-5)\\
+Siloed Archival Edition: October 25, 2026 (America/Chicago CDT)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Standalone Lean 4 formalization (`NoetherLefschetz/Basic.lean`, `NoetherLefschetz/Spec.lean`) and technical documentation (`docs/MONODROMY.md`, `docs/DEGREE\_THRESHOLDS.md`, `docs/COUNTEREXAMPLES\_CONTEXT.md`) of Noether-Lefschetz degree thresholds and generic Picard/Hodge rank restrictions for smooth projective hypersurfaces.
+\end{abstract}
+
+\section{Scope, Scientific Honesty, and Non-Claim Boundary}
+This repository formalizes degree thresholds and Noether-Lefschetz structural specifications. It does not claim a proof or disproof of the Clay Hodge Conjecture.
+
+\begin{itemize}
+  \item \textbf{Repository:} \texttt{https://github.com/BenFrohman/NoetherLefschetz}
+  \item \textbf{Dedicated 1-to-1 Zenodo DOI:} \texttt{10.5281/zenodo.23652976}
+  \item \textbf{Earliest Git Commit SHA:} \texttt{64b4d7bb85ecc51e416ba5bc3a6b53a54bb735e3} (2026-09-21 04:24:19 AM CDT (UTC-5))
+  \item \textbf{License \& Copyright:} Copyright \textcopyright\ 2026 Benjamin Stanley Frohman. Licensed under the Apache License, Version 2.0.
+\end{itemize}
+
+\section{Technical Overview \& Repository Specification}
+**Author:** Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman))
+
+**Copyright:** (c) 2026 Benjamin Stanley Frohman.
+
+**License:** Apache-2.0. See `LICENSE` and `COPYRIGHT`.
+
+This repository is **not** a proof of the Hodge conjecture.
+
+It records the Noether–Lefschetz theorem as a separate statement.
+
+On a *very general* hypersurface of high enough degree, there are **no extra
+
+Hodge classes**. The only Hodge classes are powers of the hyperplane class,
+
+which are already algebraic. Hodge is then true on that host for a trivial
+
+reason: there is nothing extra to construct.
+
+Let \textbackslash\{\}(S \textbackslash\{\}subset \textbackslash\{\}mathbb\{P\}\textasciicircum{}3\textbackslash\{\}) be a very general surface of degree \textbackslash\{\}(d \textbackslash\{\}ge 4\textbackslash\{\}).
+
+Then
+
+\textbackslash\{\}[
+
+\textbackslash\{\}operatorname\{Pic\}(S) \textbackslash\{\}cong \textbackslash\{\}mathbb\{Z\}\textbackslash\{\}cdot \textbackslash\{\}mathcal\{O\}\_S(1),
+
+\textbackslash\{\}qquad
+
+\textbackslash\{\}operatorname\{Hdg\}\textasciicircum{}1(S) = \textbackslash\{\}mathbb\{Q\}\textbackslash\{\}, h.
+
+\textbackslash\{\}]
+
+Lefschetz (1921); modern proofs via Hodge theory / infinitesimal variation
+
+(Griffiths, Carlson, Green, Voisin, …).
+
+\section{Cryptographic Provenance \& File Inventory}
+Every source artifact in \texttt{BenFrohman/NoetherLefschetz} is audited via \texttt{titan-audit}
+(\texttt{audit/TITAN\_AUDIT\_CERTIFICATE.json}) and sealed under a deterministic SHA-256 Merkle tree via
+\texttt{sealguard} (\texttt{PROVENANCE\_MERKLE\_ROOT.json}) signed with Ed25519 key fingerprint
+\texttt{b428fb72676f1c52}.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.52\textwidth}rr}
+\toprule
+\textbf{Repository Path} & \textbf{Size} & \textbf{SHA-256 Prefix} \\
+\midrule
+\texttt{COPYRIGHT} & 399 B & \texttt{bcce150caf6575c8...} \\
+\texttt{LICENSE} & 11355 B & \texttt{9da72c2bee4f20ba...} \\
+\texttt{NOTICE} & 328 B & \texttt{b8978c158d483435...} \\
+\texttt{NoetherLefschetz/Basic.lean} & 1088 B & \texttt{d80121b7a82becaf...} \\
+\texttt{NoetherLefschetz/Spec.lean} & 1530 B & \texttt{b52392e9842230b1...} \\
+\texttt{README.md} & 2572 B & \texttt{838f7cd67cd7c466...} \\
+\texttt{docs/MONODROMY.md} & 3839 B & \texttt{c45ce598d9af083e...} \\
+\texttt{docs/STATEMENT.md} & 953 B & \texttt{df1156d5d3d35cb4...} \\
+\texttt{docs/THRESHOLDS.md} & 1589 B & \texttt{ecc76ad529ea19ff...} \\
+\texttt{docs/VACUOUS.md} & 616 B & \texttt{47287ad9b88ed196...} \\
+\texttt{docs/WHAT\_COMPILES.md} & 1441 B & \texttt{53cb757853f2f9f9...} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vfill
+\noindent\rule{\textwidth}{0.4pt}\\
+\footnotesize
+\textbf{Attribution \& Licensing Notice:} Copyright \textcopyright\ 2026 Benjamin Stanley Frohman (ORCID: \texttt{0009-0006-7068-3718}).
+Licensed under the Apache License, Version 2.0.
+\end{document}
