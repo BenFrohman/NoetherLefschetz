@@ -2,6 +2,11 @@
 
 Author of this record: Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman)).
 Copyright © 2026 Benjamin Stanley Frohman. Apache-2.0.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652976.svg)](https://doi.org/10.5281/zenodo.23652976) [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
+**Author:** Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman))
+**Copyright:** (c) 2026 Benjamin Stanley Frohman.
+**License:** Apache-2.0. See `LICENSE` and `COPYRIGHT`.
 
 This repository is **not** a proof of the Hodge conjecture.
 It records the Noether–Lefschetz theorem as a separate statement.
@@ -39,12 +44,39 @@ The vanishing already holds for cubics, quartics, and quintics. It fails for qua
 - A **special** host (Fermat quartic, the three-chain sextic \(V(F)\) containing the plane \(\Pi\)) can have extra Hodge classes. On \(V(F)\) the extra class \(\beta = h^2 - 6[\Pi] = [S] - 5[\Pi]\) is algebraic. That component is not a miss.
 - A **general fourfold** that is not a very general hypersurface of degree \(d \ge 3\) in \(\mathbb{P}^5\) can have extra \((2,2)\) classes. Writing those classes as algebraic cycles is the Hodge conjecture.
 - NL does not construct cycles on the special fibre. It deletes the extra classes on the complement of the locus.
+- A **special** host (Fermat quartic, a sextic that contains a plane) can have
+  extra Hodge classes. NL does not apply to those points of the moduli space.
+- A **general fourfold** that is not a very general high-degree hypersurface
+  can have extra \((2,2)\) classes. Writing those classes as algebraic cycles
+  is the Hodge conjecture. That object lives in
+  [BenFrohman/HODGE](https://github.com/BenFrohman/HODGE),
+  as `HodgeConjecture.general_fourfold`.
+- NL is not a constructor \(\gamma \mapsto (Z_i, a_i)\) for extra classes.
+  It says those extra classes are absent on a very general high-degree host.
 
-## Relation to HODGE
+## Sister repositories
 
 | Repo | Sentence |
 |---|---|
 | This repo | Very general \(X \subset \mathbb{P}^5\), \(d \ge 3\): \(\mathrm{Hdg}^2 = \mathbb{Q} h^2\) |
 | [HODGE](https://github.com/BenFrohman/HODGE) | Every Hodge class on a fourfold is algebraic (open) |
+- [HODGE](https://github.com/BenFrohman/HODGE)
+- [FermatPlanes](https://github.com/BenFrohman/FermatPlanes)
+- [CubicFourfold](https://github.com/BenFrohman/CubicFourfold)
+- [StandardConjectures](https://github.com/BenFrohman/StandardConjectures)
+- [TateConjecture](https://github.com/BenFrohman/TateConjecture)
+- [DerivedCategories](https://github.com/BenFrohman/DerivedCategories)
+- [HODGE-DISPROOF](https://github.com/BenFrohman/HODGE-DISPROOF)
 
 Do not import this statement into `Hodge.lean` as a discharge of Clay.
+
+---
+## Archival DOI & Cryptographic Provenance
+
+- **Dedicated 1-to-1 Zenodo DOI:** [10.5281/zenodo.23652976](https://doi.org/10.5281/zenodo.23652976)
+- **Author:** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718))
+- **License:** Apache License, Version 2.0 (`Copyright (c) 2026 Benjamin Stanley Frohman`)
+- **Earliest Commit Provenance:** `64b4d7bb85ecc51e416ba5bc3a6b53a54bb735e3` (2026-09-21 04:24:19 AM CDT (UTC-5))
+- **SealGuard SHA-256 Merkle Root:** `6b5b8b461fbf3db803aaac4c7f9cd438d9df9dde6444c3992ddb72350f639d9a` (`PROVENANCE_MERKLE_ROOT.json`)
+- **Titan Audit Certificate:** `audit/TITAN_AUDIT_CERTIFICATE.json` (Ed25519 key `b428fb72676f1c52`)
+- **Scope & Scientific Boundary:** This repository formalizes degree thresholds and Noether-Lefschetz structural specifications. It does not claim a proof or disproof of the Clay Hodge Conjecture.

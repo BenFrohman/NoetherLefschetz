@@ -1,0 +1,100 @@
+{
+  "schema": "sealguard-merkle-provenance-v1.0",
+  "repository": "BenFrohman/NoetherLefschetz",
+  "doi": "10.5281/zenodo.23652976",
+  "author": "Benjamin Stanley Frohman",
+  "orcid": "0009-0006-7068-3718",
+  "license": "Apache-2.0",
+  "timestamp_cdt": "2026-10-25T19:10:00-05:00",
+  "merkle_root_sha256": "6b5b8b461fbf3db803aaac4c7f9cd438d9df9dde6444c3992ddb72350f639d9a",
+  "ed25519_key_fingerprint": "b428fb72676f1c52",
+  "ed25519_signature": "82a507aff17dc01d555088a4561ceb93e524c27d2f6693fec9a4f529259a33d4f361116b1453633ca3985f3070a4002a4ab6fd23f4459b038cf5f7b233424903",
+  "leaf_count": 17,
+  "leaves": [
+    {
+      "path": ".zenodo.json",
+      "sha256": "12f51974a5dc446081b078278175125e86679c538f95b892f6646adac6a08f9f",
+      "bytes": 1256
+    },
+    {
+      "path": "AUTHORS.md",
+      "sha256": "1732529c9d516b14378c2ea60b7a29a9dd01385bb5f302efa163c42b3dceb130",
+      "bytes": 320
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "ea53d1b2b90847392f225f1c1d130a73c1e346ee7b3b60a2a4ce55e04e7ea7a9",
+      "bytes": 600
+    },
+    {
+      "path": "COPYRIGHT",
+      "sha256": "bcce150caf6575c8b263cc5d27df68b678c18e31973e24abfd9d77640489b3d3",
+      "bytes": 399
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "ec43eec7417d548fb78a8dc50830f1d854b91a89c2daf0d4e957601515c15e87",
+      "bytes": 10773
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "a2fc66076957706a381a5d2c301787ac8c199a21352e5b7eac918dec76183f29",
+      "bytes": 594
+    },
+    {
+      "path": "NoetherLefschetz/Basic.lean",
+      "sha256": "d80121b7a82becafdcf946aa10b8cf07f9104357424bd567295e93da8711bf58",
+      "bytes": 1088
+    },
+    {
+      "path": "NoetherLefschetz/Spec.lean",
+      "sha256": "b52392e9842230b16764dab62d965c42f8b6e6446c396d94c11888e409de2ae5",
+      "bytes": 1530
+    },
+    {
+      "path": "README.md",
+      "sha256": "ecfc5db6c300f846d125a44400b11c033ebdba4b7567c1a5f9ed1b0a21d79e51",
+      "bytes": 3674
+    },
+    {
+      "path": "audit/TITAN_AUDIT_CERTIFICATE.json",
+      "sha256": "96d8489536a8a20a169932683728b4d94df8309518df836415cd0b4b2dcd2962",
+      "bytes": 1053
+    },
+    {
+      "path": "docs/MONODROMY.md",
+      "sha256": "c45ce598d9af083ecd39fa29968082a7ee1e35cf9a330bc563a6e7e0a4488e40",
+      "bytes": 3839
+    },
+    {
+      "path": "docs/STATEMENT.md",
+      "sha256": "df1156d5d3d35cb44331a0a164130beb7dcdcc094f76a3eff32b2d717be89b66",
+      "bytes": 953
+    },
+    {
+      "path": "docs/THRESHOLDS.md",
+      "sha256": "ecc76ad529ea19ff4216349033adccb993dd2500bb1622435bfb7926cf289c73",
+      "bytes": 1589
+    },
+    {
+      "path": "docs/VACUOUS.md",
+      "sha256": "47287ad9b88ed1961d978c99103b17202257b80de0065ae2638d6f80251b67c3",
+      "bytes": 616
+    },
+    {
+      "path": "docs/WHAT_COMPILES.md",
+      "sha256": "53cb757853f2f9f9695e5be2250168994f76cc2a0c3625fe888258e0dd1e2628",
+      "bytes": 1441
+    },
+    {
+      "path": "paper/NoetherLefschetz_Technical_Monograph_2026.pdf",
+      "sha256": "775f27a5b9fdeb484828d13772e62abdb7d1194e8e5192596b801fdf4310ae1a",
+      "bytes": 48282
+    },
+    {
+      "path": "paper/NoetherLefschetz_Technical_Monograph_2026.tex",
+      "sha256": "baea7f6523af73757b6e8c5a517486bfb200e3f90179fd87463f54fb37ab87b9",
+      "bytes": 4825
+    }
+  ]
+}
