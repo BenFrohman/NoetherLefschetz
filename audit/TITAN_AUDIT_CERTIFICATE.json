@@ -1,0 +1,29 @@
+{
+  "schema": "titan-audit-v1.0",
+  "repository": "BenFrohman/NoetherLefschetz",
+  "doi": "10.5281/zenodo.23652976",
+  "author": "Benjamin Stanley Frohman",
+  "orcid": "0009-0006-7068-3718",
+  "license": "Apache-2.0",
+  "timestamp_cdt": "2026-10-25T19:10:00-05:00",
+  "lean_module_count": 2,
+  "sorry_count": 0,
+  "modules": [
+    {
+      "file": "NoetherLefschetz/Basic.lean",
+      "sha256": "d80121b7a82becafdcf946aa10b8cf07f9104357424bd567295e93da8711bf58",
+      "declarations": 2,
+      "sorry_tokens": 0
+    },
+    {
+      "file": "NoetherLefschetz/Spec.lean",
+      "sha256": "b52392e9842230b16764dab62d965c42f8b6e6446c396d94c11888e409de2ae5",
+      "declarations": 4,
+      "sorry_tokens": 0
+    }
+  ],
+  "verdict": "PASS_ZERO_SORRY_HONEST_BOUNDARY",
+  "payload_sha256": "efcdeddb14159f21dbfeb5e191c4257fdd8007eafc5ae1ba7935d7fdde635ce0",
+  "ed25519_key_fingerprint": "b428fb72676f1c52",
+  "ed25519_signature": "791aa78fb7e6e75b08c6c95b69fcdd7f63983571f20ce6ace81505b321f4a058f4c8dce1f16e0e1ba106eb66dfc73c70938e3523430fdacb134aa3be32a21703"
+}
