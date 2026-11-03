@@ -7,6 +7,12 @@ Authors: Benjamin Stanley Frohman
 /-!
 # Noether–Lefschetz as named propositions
 
+Not the Hodge conjecture. Literature, not a proof in this file.
+
+Geometric range: a very general smooth hypersurface of degree `d ≥ 3` in `ℙ⁵`
+has no extra rational Hodge class. Degree `2` fails (quadric fourfolds contain planes).
+The axiom below keeps the stricter sufficient hypothesis `6 ≤ degree`.
+That `6` is not claimed to be sharp.
 Not the Hodge conjecture. No `axiom`. No `sorry`. No dummy `P ∧ ¬P`.
 `VanishingOfExtraClasses` is a sentence. A term of that sentence would be
 Beauville (monodromy dense in the orthogonal group of vanishing cohomology)
@@ -22,6 +28,16 @@ It is a field, not `degree = 0 ∧ degree ≠ 0`. -/
 structure Hypersurface where
   degree : ℕ
   isVeryGeneral : Prop
+
+/-- Extra means not a rational multiple of h². Not constantly `False`. -/
+axiom ExtraClass (X : Hypersurface) : Prop
+
+/-- Sufficient literature bound. Not the sharp threshold `d ≥ 3`. -/
+axiom noether_lefschetz (X : Hypersurface)
+    (hd : 6 ≤ X.degree) (hvg : X.isVeryGeneral) :
+    ¬ ExtraClass X
+
+/-- Vacuous extra-class problem on that locus: extra + these hypotheses ⇒ False. -/
   hasExtraClass : Prop
 
 /-- Extra means not a rational multiple of h². -/

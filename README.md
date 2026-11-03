@@ -1,5 +1,7 @@
 # Noether–Lefschetz
 
+Author of this record: Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman)).
+Copyright © 2026 Benjamin Stanley Frohman. Apache-2.0.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652976.svg)](https://doi.org/10.5281/zenodo.23652976) [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 **Author:** Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman))
@@ -11,15 +13,11 @@ It records the Noether–Lefschetz theorem as a separate statement.
 
 ## What this theorem solves
 
-On a *very general* hypersurface of high enough degree, there are **no extra
-Hodge classes**. The only Hodge classes are powers of the hyperplane class,
-which are already algebraic. Hodge is then true on that host for a trivial
-reason: there is nothing extra to construct.
+On a *very general* hypersurface of high enough degree, there are **no extra Hodge classes**. The only Hodge classes are powers of the hyperplane class, which are already algebraic. Hodge is then true on that host for a trivial reason: there is nothing extra to construct.
 
 ### Surfaces (classical)
 
-Let \(S \subset \mathbb{P}^3\) be a very general surface of degree \(d \ge 4\).
-Then
+Let \(S \subset \mathbb{P}^3\) be a very general surface of degree \(d \ge 4\). Then
 
 \[
 \operatorname{Pic}(S) \cong \mathbb{Z}\cdot \mathcal{O}_S(1),
@@ -27,24 +25,25 @@ Then
 \operatorname{Hdg}^1(S) = \mathbb{Q}\, h.
 \]
 
-Lefschetz (1921); modern proofs via Hodge theory / infinitesimal variation
-(Griffiths, Carlson, Green, Voisin, …).
+Lefschetz (1921). This is a divisor statement. It is not the fourfold case.
 
-### Fourfolds (the case that was being confused with Clay)
+### Fourfolds
 
-Let \(X \subset \mathbb{P}^5\) be a very general hypersurface of degree
-\(d \ge 6\). Then
+Let \(X \subset \mathbb{P}^5\) be a very general smooth hypersurface of degree \(d \ge 3\). Then
 
 \[
 \operatorname{Hdg}^2(X) = \mathbb{Q}\, h^2.
 \]
 
-The only Hodge class of type \((2,2)\) is a multiple of the hyperplane square.
-The section of the cycle class map is \(\gamma = a h^2\), and \(h^2\) is the
-class of \(X \cap \mathbb{P}^3\).
+So \(\Delta_{\mathrm{Hdg}}=\emptyset\) and \(\Delta_{\mathrm{miss}}=\emptyset\). The section is \(\gamma = a h^2\), and \(h^2\) is the class of \(X \cap \mathbb{P}^3\).
+
+The vanishing already holds for cubics, quartics, and quintics. It fails for quadrics, because every smooth quadric fourfold contains planes. The Lean axiom keeps the stricter hypothesis `6 ≤ degree`. That hypothesis is sufficient. It is not the sharp bound. See `docs/STATEMENT.md`.
 
 ## What this does not solve
 
+- A **special** host (Fermat quartic, the three-chain sextic \(V(F)\) containing the plane \(\Pi\)) can have extra Hodge classes. On \(V(F)\) the extra class \(\beta = h^2 - 6[\Pi] = [S] - 5[\Pi]\) is algebraic. That component is not a miss.
+- A **general fourfold** that is not a very general hypersurface of degree \(d \ge 3\) in \(\mathbb{P}^5\) can have extra \((2,2)\) classes. Writing those classes as algebraic cycles is the Hodge conjecture.
+- NL does not construct cycles on the special fibre. It deletes the extra classes on the complement of the locus.
 - A **special** host (Fermat quartic, a sextic that contains a plane) can have
   extra Hodge classes. NL does not apply to those points of the moduli space.
 - A **general fourfold** that is not a very general high-degree hypersurface
@@ -57,6 +56,10 @@ class of \(X \cap \mathbb{P}^3\).
 
 ## Sister repositories
 
+| Repo | Sentence |
+|---|---|
+| This repo | Very general \(X \subset \mathbb{P}^5\), \(d \ge 3\): \(\mathrm{Hdg}^2 = \mathbb{Q} h^2\) |
+| [HODGE](https://github.com/BenFrohman/HODGE) | Every Hodge class on a fourfold is algebraic (open) |
 - [HODGE](https://github.com/BenFrohman/HODGE)
 - [FermatPlanes](https://github.com/BenFrohman/FermatPlanes)
 - [CubicFourfold](https://github.com/BenFrohman/CubicFourfold)
