@@ -93,3 +93,10 @@ See [CERTIFICATE.md](CERTIFICATE.md) and the paper in `paper/`.
 - [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652975.svg)](https://doi.org/10.5281/zenodo.23652975) Noether-Lefschetz Loci, Monodromy Representations, and Degree Thresholds for Hypersurfaces in Lean 4 — all versions: [10.5281/zenodo.23652975](https://doi.org/10.5281/zenodo.23652975); latest version: [10.5281/zenodo.23652976](https://doi.org/10.5281/zenodo.23652976)
 - [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23632801.svg)](https://doi.org/10.5281/zenodo.23632801) Noether-Lefschetz Loci, K3-Fibered and Sextic Fourfold Period Transversality, and Orlov Derived Equivalences in Lean 4 — all versions: [10.5281/zenodo.23632801](https://doi.org/10.5281/zenodo.23632801); latest version: [10.5281/zenodo.23632802](https://doi.org/10.5281/zenodo.23632802)
 - [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23867555.svg)](https://doi.org/10.5281/zenodo.23867555) Noether-Lefschetz Loci, Monodromy Representations, and Degree Thresholds for Hypersurfaces in Lean 4 — all versions: [10.5281/zenodo.23867555](https://doi.org/10.5281/zenodo.23867555); latest version: [10.5281/zenodo.23867556](https://doi.org/10.5281/zenodo.23867556)
+
+
+## Zenodo: Frohman_Noether_Lefschetz_Conditional_2026
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23942455.svg)](https://doi.org/10.5281/zenodo.23942455)
+
+The paper `paper/Frohman_Noether_Lefschetz_Conditional_2026.pdf` is archived on Zenodo as https://doi.org/10.5281/zenodo.23942455.
