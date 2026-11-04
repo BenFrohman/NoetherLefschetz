@@ -87,3 +87,9 @@ Do not import this statement into `Hodge.lean` as a discharge of Clay.
 ## Verification certificate
 
 See [CERTIFICATE.md](CERTIFICATE.md) and the paper in `paper/`.
+
+## Zenodo archive
+
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652975.svg)](https://doi.org/10.5281/zenodo.23652975) Noether-Lefschetz Loci, Monodromy Representations, and Degree Thresholds for Hypersurfaces in Lean 4 — all versions: [10.5281/zenodo.23652975](https://doi.org/10.5281/zenodo.23652975); latest version: [10.5281/zenodo.23652976](https://doi.org/10.5281/zenodo.23652976)
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23632801.svg)](https://doi.org/10.5281/zenodo.23632801) Noether-Lefschetz Loci, K3-Fibered and Sextic Fourfold Period Transversality, and Orlov Derived Equivalences in Lean 4 — all versions: [10.5281/zenodo.23632801](https://doi.org/10.5281/zenodo.23632801); latest version: [10.5281/zenodo.23632802](https://doi.org/10.5281/zenodo.23632802)
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23867555.svg)](https://doi.org/10.5281/zenodo.23867555) Noether-Lefschetz Loci, Monodromy Representations, and Degree Thresholds for Hypersurfaces in Lean 4 — all versions: [10.5281/zenodo.23867555](https://doi.org/10.5281/zenodo.23867555); latest version: [10.5281/zenodo.23867556](https://doi.org/10.5281/zenodo.23867556)
