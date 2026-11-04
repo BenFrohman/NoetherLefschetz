@@ -1,0 +1,220 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage[no-math]{fontspec}
+\setmonofont{DejaVu Sans Mono}[Scale=0.72]
+\usepackage{longtable}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\title[NoetherLefschetz]{Noether--Lefschetz Vanishing for Hypersurfaces in $\mathbb P^5$ as an Explicit Hypothesis: a Machine-Checked Lean~4 Interface}
+\author{Benjamin Stanley Frohman}
+\email{frohmanbenjamin@gmail.com}
+\urladdr{https://github.com/BenFrohman/NoetherLefschetz}
+\date{November 4, 2026}
+\sloppy
+\begin{document}
+\begin{abstract}
+We record in Lean~4, with no user axioms, the propositional form of Noether--Lefschetz vanishing: a very general smooth hypersurface of degree $d\ge3$ in $\mathbb P^5$ has no rational Hodge class in $H^4$ beyond multiples of $h^2$. Hypersurfaces are abstract records with a degree, a ``very general'' predicate and an ``extra class'' predicate. Conditional on the vanishing sentence, we prove that an extra class on such a hypersurface of degree at least $3$ gives a contradiction, and that there is no extra class when the degree is at least $6$. A second encoding over an abstract moduli setting proves that the $d\ge3$ sentence implies its $d\ge6$ case. The predicate $\mathrm{Hdg}^2=\mathbb Q h^2$ in that encoding is a placeholder defined as \texttt{True}. All results are conditional. Beauville's monodromy theorem and Deligne's invariance argument are not formalized.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+For a very general smooth hypersurface $X\subset\mathbb P^5$ of degree $d\ge3$, the space of rational Hodge classes $H^4(X,\mathbb Q)\cap H^{2,2}(X)$ is spanned by $h^2$. The standard proof combines Beauville's theorem that monodromy is Zariski dense in the orthogonal group of vanishing cohomology~\cite{beauville} with Deligne's theorem that a Hodge class on a very general fibre is monodromy invariant~\cite{deligne}. For $d=2$ the statement fails, because smooth quadric fourfolds contain planes. Neither argument is formalized here. The repository previously asserted the vanishing (for $d\ge6$) and the moduli-level statement (for $d\ge3$) as Lean axioms, and one file did not compile. In this version every axiom is removed. The vanishing is a hypothesis, and all results are implications from it.
+
+\section{Encoding by records (\texttt{NoetherLefschetz.Basic})}
+\begin{definition}[\texttt{Hypersurface}, \texttt{ExtraClass}, \texttt{VanishingOfExtraClasses}]
+A \emph{hypersurface record} $X$ has a degree $\deg X\in\mathbb N$ and propositions \texttt{isVeryGeneral} and \texttt{hasExtraClass}. \texttt{ExtraClass X} is \texttt{hasExtraClass}. The \emph{vanishing sentence} for $X$ is: if $3\le\deg X$ and $X$ is very general, then $X$ has no extra class. The proposition \texttt{noether\_lefschetz X} is defined to be this sentence. \texttt{HodgeLocusPosAlgebraic d} is defined to be $6\le d$.
+\end{definition}
+\begin{theorem}[Conditional; \texttt{no\_extra\_on\_nl\_locus}]
+Let $X$ satisfy the vanishing sentence. If $3\le\deg X$, $X$ is very general and $X$ has an extra class, then \texttt{False}.
+\end{theorem}
+\begin{theorem}[Conditional; \texttt{noether\_lefschetz\_of\_vanishing}]
+Let $X$ satisfy the vanishing sentence. If $6\le\deg X$ and $X$ is very general, then $X$ has no extra class.
+\end{theorem}
+
+\section{Encoding over a moduli setting (\texttt{NoetherLefschetz.Spec})}
+\begin{definition}[\texttt{SpecSetting}, \texttt{hdg2\_eq\_Qh2}, \texttt{extra\_rational\_classes\_vanish}]
+A \emph{spec setting} $S$ consists of types $M_d$ for $d\in\mathbb N$ (moduli of smooth degree-$d$ hypersurfaces) and a predicate \texttt{IsVeryGeneral} on properties of points of $M_d$. The predicate \texttt{hdg2\_eq\_Qh2} is a placeholder \emph{defined as} \texttt{True}. The sentence \texttt{extra\_rational\_classes\_vanish d} is: $3\le d$ implies $\texttt{IsVeryGeneral}(X\mapsto\texttt{hdg2\_eq\_Qh2}\,d\,X)$.
+\end{definition}
+\begin{proposition}[\texttt{extra\_rational\_classes\_vanish\_unfolds}]
+For every $S$ and $d$, \texttt{extra\_rational\_classes\_vanish d} equals its defining formula.
+\end{proposition}
+\begin{theorem}[Conditional; \texttt{d\_ge\_6\_subcase}]
+Assume that for all $d\ge3$, $\texttt{IsVeryGeneral}(X\mapsto\texttt{hdg2\_eq\_Qh2}\,d\,X)$. Then the same holds for every $d\ge6$.
+\end{theorem}
+\begin{remark}
+Because \texttt{hdg2\_eq\_Qh2} is \texttt{True}, the second encoding carries no Hodge-theoretic content. It records only how the threshold $d\ge6$ follows from $d\ge3$.
+\end{remark}
+
+\section{Correspondence between claims and Lean declarations}\label{sec:table}
+Every mathematical claim of this paper is listed below with the Lean declaration that proves it. ``Conditional'' means the hypothesis named in the statement is an explicit argument of the Lean theorem and is \emph{not} proved in the repository. No claim in this paper goes beyond these statements.
+
+{\footnotesize
+\begin{longtable}{p{0.30\linewidth}p{0.40\linewidth}p{0.22\linewidth}}
+\hline
+Claim & Lean declaration & Status \\
+\hline\endhead
+Vanishing, $\deg\ge3$, very general, extra class $\Rightarrow$ False & \path{NoetherLefschetz.no_extra_on_nl_locus} & Conditional on \texttt{VanishingOfExtraClasses X} \\
+Vanishing $\Rightarrow$ no extra class for $\deg\ge6$ & \path{NoetherLefschetz.noether_lefschetz_of_vanishing} & Conditional on \texttt{VanishingOfExtraClasses X} \\
+Sentence unfolds to its definition & \path{NoetherLefschetz.Spec.extra_rational_classes_vanish_unfolds} & Proved (by definition) \\
+$d\ge3$ sentence $\Rightarrow$ $d\ge6$ case & \path{NoetherLefschetz.Spec.d_ge_6_subcase} & Conditional on the $d\ge3$ hypothesis \\
+\hline
+\end{longtable}}
+
+\section{Scope and limitations}
+Hodge theory, monodromy, moduli of hypersurfaces and the theorems of Beauville and Deligne are not formalized. Hypersurface records and spec settings are arbitrary data, and \texttt{hdg2\_eq\_Qh2} is \texttt{True}. The Noether--Lefschetz theorem is not proved; the results are implications from it. The bound $6$ is not claimed to be sharp. Statement changes in this version: the axioms \texttt{ExtraClass} and \texttt{noether\_lefschetz} in \texttt{Basic} are removed. \texttt{Basic} did not compile and has been repaired: \texttt{hasExtraClass} is a record field, and \texttt{ExtraClass} and \texttt{noether\_lefschetz} are definitions. The old axiom \texttt{noether\_lefschetz} ($d\ge6$) is now the conditional theorem \texttt{noether\_lefschetz\_of\_vanishing}. In \texttt{Spec}, the axioms \texttt{SmoothHypersurfaceModuli} and \texttt{IsVeryGeneral} are now fields of \texttt{SpecSetting}, and the axiom \texttt{extra\_rational\_classes\_vanish\_holds} is now a hypothesis of \texttt{d\_ge\_6\_subcase}.
+
+
+\appendix
+\section{Lean source}
+The complete Lean source of the certified development (copyright headers omitted) is reproduced verbatim.
+\subsection*{\texttt{NoetherLefschetz/Basic.lean}}
+\begin{verbatim}
+/-!
+# Noether–Lefschetz as named propositions
+
+Not the Hodge conjecture. Literature, not a proof in this file.
+
+Geometric range: a very general smooth hypersurface of degree `d ≥ 3` in `ℙ⁵`
+has no extra rational Hodge class. Degree `2` fails (quadric fourfolds contain planes).
+No `axiom`. No `sorry`. No dummy `P ∧ ¬P`.
+`VanishingOfExtraClasses` is a sentence. A term of that sentence would be
+Beauville (monodromy dense in the orthogonal group of vanishing cohomology)
+plus Deligne (a rational Hodge class on a very general fibre is
+monodromy-invariant). Those arguments are not in this file; every result is
+conditional on that sentence, supplied as a hypothesis.
+-/
+
+namespace NoetherLefschetz
+
+/-- A named hypersurface in ℙ⁵, as a record.
+`hasExtraClass` is the geometric predicate “Hdg² larger than ℚ h²”.
+It is a field, not `degree = 0 ∧ degree ≠ 0`. -/
+structure Hypersurface where
+  degree : Nat
+  isVeryGeneral : Prop
+  hasExtraClass : Prop
+
+/-- Extra means not a rational multiple of h². -/
+def ExtraClass (X : Hypersurface) : Prop :=
+  X.hasExtraClass
+
+/-- Vanishing sentence (monodromy + Deligne).
+Very general smooth hypersurface in ℙ⁵ of degree ≥ 3. -/
+def VanishingOfExtraClasses (X : Hypersurface) : Prop :=
+  3 ≤ X.degree → X.isVeryGeneral → ¬ ExtraClass X
+
+/-- BKU sentence, as a name only: the inequality `6 ≤ d`. -/
+def HodgeLocusPosAlgebraic (d : Nat) : Prop :=
+  6 ≤ d
+
+/-- Former axiom name, now a proposition. -/
+def noether_lefschetz (X : Hypersurface) : Prop :=
+  VanishingOfExtraClasses X
+
+/-- Implication from the named vanishing sentence. Does not inhabit that sentence. -/
+theorem no_extra_on_nl_locus (X : Hypersurface)
+    (hV : VanishingOfExtraClasses X)
+    (hd : 3 ≤ X.degree) (hvg : X.isVeryGeneral)
+    (hExtra : ExtraClass X) : False :=
+  hV hd hvg hExtra
+
+/-- The former axiom `noether_lefschetz` (degree ≥ 6), now conditional on the
+vanishing sentence. -/
+theorem noether_lefschetz_of_vanishing (X : Hypersurface)
+    (hV : VanishingOfExtraClasses X)
+    (hd : 6 ≤ X.degree) (hvg : X.isVeryGeneral) :
+    ¬ ExtraClass X :=
+  hV (Nat.le_trans (by decide) hd) hvg
+
+end NoetherLefschetz
+\end{verbatim}
+\subsection*{\texttt{NoetherLefschetz/Spec.lean}}
+\begin{verbatim}
+/-
+Statement encoding. No Mathlib imports.
+The former axioms `SmoothHypersurfaceModuli`, `IsVeryGeneral` are fields of
+`SpecSetting`; the former axiom `extra_rational_classes_vanish_holds` is a hypothesis.
+Does not prove Beauville, Deligne, or Noether-Lefschetz.
+Note: `hdg2_eq_Qh2` is a placeholder defined as `True`.
+-/
+
+namespace NoetherLefschetz
+namespace Spec
+
+/-- Abstract moduli of smooth degree-`d` hypersurfaces in P^5 and a
+"very general" predicate. Supplied by the user. -/
+structure SpecSetting where
+  SmoothHypersurfaceModuli : Nat → Type
+  IsVeryGeneral : {d : Nat} → (SmoothHypersurfaceModuli d → Prop) → Prop
+
+variable (S : SpecSetting)
+
+/-- H^4(X,Q) ∩ H^{2,2}(X) = Q h^2. Placeholder: defined as `True`. -/
+def hdg2_eq_Qh2 (d : Nat) (_X : S.SmoothHypersurfaceModuli d) : Prop :=
+  True
+
+/-- The sentence. Proof is not supplied. -/
+def extra_rational_classes_vanish (d : Nat) : Prop :=
+  3 ≤ d → S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X
+
+theorem extra_rational_classes_vanish_unfolds (d : Nat) :
+    extra_rational_classes_vanish S d =
+      (3 ≤ d → S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X) :=
+  rfl
+
+/-- d ≥ 6 is a subcase of the d ≥ 3 sentence (conditional on that sentence). -/
+theorem d_ge_6_subcase
+    (extra_rational_classes_vanish_holds : ∀ d, 3 ≤ d → S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X)
+    (d : Nat) (hd : 6 ≤ d) :
+    S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X :=
+  extra_rational_classes_vanish_holds d (Nat.le_trans (by decide) hd)
+
+end Spec
+end NoetherLefschetz
+\end{verbatim}
+
+\section{Verification certificate}\label{app:verification-certificate}
+
+The formal development was machine-checked as follows.
+
+{\raggedright
+\begin{itemize}
+\item Repository:\\ {\footnotesize\url{https://github.com/BenFrohman/NoetherLefschetz}}
+\item Verified commit:\\ {\footnotesize\texttt{ec7289969d31f50bf84395a515875466a656422d}}
+\item Lean toolchain: \texttt{leanprover/lean4:v4.34.0}
+\item Mathlib: none (the development depends only on Lean core)
+\item Continuous integration run (build, axiom audit, \texttt{sorry}/\texttt{axiom} scan; passed):\\ {\footnotesize\url{https://github.com/BenFrohman/NoetherLefschetz/actions/runs/41794912612}}
+\item SHA-256 of the GitHub source tarball of the verified commit, downloaded twice with identical result:\\ {\footnotesize\url{https://github.com/BenFrohman/NoetherLefschetz/archive/ec7289969d31f50bf84395a515875466a656422d.tar.gz}}\\
+{\footnotesize\texttt{43d91047d05a339cb5ce78982e0f84b4d44582dadeea0a82efccd5db78dc565f}}
+\end{itemize}\par}
+
+The tarball hash refers to the verified commit rather than to a release tag, since a document cannot contain the hash of an archive that includes itself. The Lean sources are unchanged between that commit and the release tag.
+
+\textbf{The development contains no \texttt{sorry} and no user-declared axioms.} Every one of the 4 theorems and lemmas listed below depends only on Lean's standard axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} (or on none). The table is the verbatim output of \texttt{lake env lean AxiomAudit.lean} (\texttt{\#print axioms}) on the verified commit.
+
+{\footnotesize
+\begin{longtable}{p{0.55\linewidth}p{0.38\linewidth}}
+\hline
+Lean declaration & \texttt{\#print axioms} \\
+\hline\endhead
+\path{NoetherLefschetz.no_extra_on_nl_locus} & \texttt{(no axioms)} \\
+\path{NoetherLefschetz.noether_lefschetz_of_vanishing} & \texttt{(no axioms)} \\
+\path{NoetherLefschetz.Spec.d_ge_6_subcase} & \texttt{(no axioms)} \\
+\path{NoetherLefschetz.Spec.extra_rational_classes_vanish_unfolds} & \texttt{(no axioms)} \\
+\hline
+\end{longtable}}
+
+\begin{thebibliography}{9}
+\bibitem{beauville} A.~Beauville, \emph{Le groupe de monodromie des familles universelles d'hypersurfaces et d'intersections compl\`etes}, Lecture Notes in Math. 1194, Springer (1986), 8--18.
+\bibitem{deligne} P.~Deligne, \emph{Th\'eorie de Hodge II}, Publ. Math. IH\'ES 40 (1971), 5--57.
+\bibitem{lean} L.~de Moura and S.~Ullrich, \emph{The Lean 4 theorem prover and programming language}, CADE-28, LNCS 12699 (2021), 625--635.
+\end{thebibliography}
+
+\end{document}

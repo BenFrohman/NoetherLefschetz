@@ -83,3 +83,7 @@ Do not import this statement into `Hodge.lean` as a discharge of Clay.
 - **SealGuard SHA-256 Merkle Root:** `6b5b8b461fbf3db803aaac4c7f9cd438d9df9dde6444c3992ddb72350f639d9a` (`PROVENANCE_MERKLE_ROOT.json`)
 - **Titan Audit Certificate:** `audit/TITAN_AUDIT_CERTIFICATE.json` (Ed25519 key `b428fb72676f1c52`)
 - **Scope & Scientific Boundary:** This repository formalizes degree thresholds and Noether-Lefschetz structural specifications. It does not claim a proof or disproof of the Clay Hodge Conjecture.
+
+## Verification certificate
+
+See [CERTIFICATE.md](CERTIFICATE.md) and the paper in `paper/`.
