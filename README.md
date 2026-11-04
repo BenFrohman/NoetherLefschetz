@@ -1,5 +1,7 @@
 # Noether–Lefschetz
 
+[![Lean certificate](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/certify.yml)
+
 Author of this record: Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman)).
 Copyright © 2026 Benjamin Stanley Frohman. Apache-2.0.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652976.svg)](https://doi.org/10.5281/zenodo.23652976) [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)

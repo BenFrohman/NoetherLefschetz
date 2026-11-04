@@ -6,40 +6,41 @@ Authors: Benjamin Stanley Frohman
 
 /-
 Statement encoding. No Mathlib imports.
-Compiles as propositions and one arithmetic subcase.
+The former axioms `SmoothHypersurfaceModuli`, `IsVeryGeneral` are fields of
+`SpecSetting`; the former axiom `extra_rational_classes_vanish_holds` is a hypothesis.
 Does not prove Beauville, Deligne, or Noether-Lefschetz.
+Note: `hdg2_eq_Qh2` is a placeholder defined as `True`.
 -/
 
 namespace NoetherLefschetz
 namespace Spec
 
-/-- Point of P(H^0(P^5, O(d))) minus the discriminant. Abstract. -/
-axiom SmoothHypersurfaceModuli : Nat → Type
+/-- Abstract moduli of smooth degree-`d` hypersurfaces in P^5 and a
+"very general" predicate. Supplied by the user. -/
+structure SpecSetting where
+  SmoothHypersurfaceModuli : Nat → Type
+  IsVeryGeneral : {d : Nat} → (SmoothHypersurfaceModuli d → Prop) → Prop
 
-/-- Complement of a countable union of proper closed subsets. Not `forall X`. -/
-axiom IsVeryGeneral {d : Nat}
-    (P : SmoothHypersurfaceModuli d → Prop) : Prop
+variable (S : SpecSetting)
 
-/-- H^4(X,Q) ∩ H^{2,2}(X) = Q h^2. -/
-def hdg2_eq_Qh2 (d : Nat) (_X : SmoothHypersurfaceModuli d) : Prop :=
+/-- H^4(X,Q) ∩ H^{2,2}(X) = Q h^2. Placeholder: defined as `True`. -/
+def hdg2_eq_Qh2 (d : Nat) (_X : S.SmoothHypersurfaceModuli d) : Prop :=
   True
 
 /-- The sentence. Proof is not supplied. -/
 def extra_rational_classes_vanish (d : Nat) : Prop :=
-  3 ≤ d → IsVeryGeneral fun X => hdg2_eq_Qh2 d X
+  3 ≤ d → S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X
 
 theorem extra_rational_classes_vanish_unfolds (d : Nat) :
-    extra_rational_classes_vanish d =
-      (3 ≤ d → IsVeryGeneral fun X => hdg2_eq_Qh2 d X) :=
+    extra_rational_classes_vanish S d =
+      (3 ≤ d → S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X) :=
   rfl
 
-/-- Literature hypothesis. Not a certified proof. -/
-axiom extra_rational_classes_vanish_holds (d : Nat) (hd : 3 ≤ d) :
-    IsVeryGeneral fun X => hdg2_eq_Qh2 d X
-
-/-- d ≥ 6 is the level line, hence a subcase of the d ≥ 3 hypothesis. -/
-theorem d_ge_6_subcase (d : Nat) (hd : 6 ≤ d) :
-    IsVeryGeneral fun X => hdg2_eq_Qh2 d X :=
+/-- d ≥ 6 is a subcase of the d ≥ 3 sentence (conditional on that sentence). -/
+theorem d_ge_6_subcase
+    (extra_rational_classes_vanish_holds : ∀ d, 3 ≤ d → S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X)
+    (d : Nat) (hd : 6 ≤ d) :
+    S.IsVeryGeneral fun X => hdg2_eq_Qh2 S d X :=
   extra_rational_classes_vanish_holds d (Nat.le_trans (by decide) hd)
 
 end Spec
