@@ -1,6 +1,7 @@
 # Noether–Lefschetz
 
 [![Lean certificate](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/certify.yml)
+[![Lean 4](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/lean.yml/badge.svg)](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/lean.yml)
 
 Author of this record: Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman)).
 Copyright © 2026 Benjamin Stanley Frohman. Apache-2.0.
