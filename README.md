@@ -3,6 +3,10 @@
 [![Lean certificate](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/certify.yml)
 [![Lean 4](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/lean.yml/badge.svg)](https://github.com/BenFrohman/NoetherLefschetz/actions/workflows/lean.yml)
 
+## Kernel certificate
+
+[certificates/CERTIFICATE.md](certificates/CERTIFICATE.md): commit `f372925`, `leanprover/lean4:v4.34.0`. `lake build` passes; the sorry/axiom scan finds 0 hits; **10 theorems depend only on `propext`, `Classical.choice`, `Quot.sound`**; 2 of 2 modules replayed through the kernel, 0 failures ([CI run](https://github.com/BenFrohman/NoetherLefschetz/actions/runs/43938014242)).
+
 Author of this record: Benjamin Stanley Frohman ([@BenFrohman](https://github.com/BenFrohman)).
 Copyright © 2026 Benjamin Stanley Frohman. Apache-2.0.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23652976.svg)](https://doi.org/10.5281/zenodo.23652976) [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)

@@ -1,0 +1,11 @@
+'NoetherLefschetz.Hypersurface.mk.inj' does not depend on any axioms
+'NoetherLefschetz.Hypersurface.mk.injEq' depends on axioms: [propext]
+'NoetherLefschetz.Hypersurface.mk.sizeOf_spec' does not depend on any axioms
+'NoetherLefschetz.no_extra_on_nl_locus' does not depend on any axioms
+'NoetherLefschetz.noether_lefschetz_of_vanishing' does not depend on any axioms
+'NoetherLefschetz.Spec.SpecSetting.mk.inj' does not depend on any axioms
+'NoetherLefschetz.Spec.SpecSetting.mk.injEq' depends on axioms: [propext]
+'NoetherLefschetz.Spec.SpecSetting.mk.sizeOf_spec' does not depend on any axioms
+'NoetherLefschetz.Spec.d_ge_6_subcase' does not depend on any axioms
+'NoetherLefschetz.Spec.extra_rational_classes_vanish_unfolds' does not depend on any axioms
+AUDIT PASS: 10 theorems in 2 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)

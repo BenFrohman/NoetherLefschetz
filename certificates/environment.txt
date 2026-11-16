@@ -1,0 +1,6 @@
+commit: f37292529f4f1395f1091267ab38b7f607057c97
+lean-toolchain: leanprover/lean4:v4.34.0
+lean --version: Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)
+lake --version: Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)
+date (UTC): 2026-11-16T19:20:13Z
+run: https://github.com/BenFrohman/NoetherLefschetz/actions/runs/43938014242
