@@ -12,6 +12,12 @@ Does not prove Beauville, Deligne, or Noether-Lefschetz.
 Note: `hdg2_eq_Qh2` is a placeholder defined as `True`.
 -/
 
+/-!
+# NoetherLefschetz.Spec
+
+Machine-checked Lean 4 module.
+-/
+
 namespace NoetherLefschetz
 namespace Spec
 
