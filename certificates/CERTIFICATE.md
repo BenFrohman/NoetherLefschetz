@@ -5,13 +5,13 @@ This file records a reproducible machine check of the Lean 4 development in this
 | Item | Value |
 |---|---|
 | Repository | https://github.com/BenFrohman/NoetherLefschetz |
-| Certified commit | `f37292529f4f1395f1091267ab38b7f607057c97` (branch `chore/kernel-certificate`) |
-| Lean sources | identical to `main` at `a74ead8559d5c68d0b6ea5ee2c358b8dc7f957e7`: no `.lean`, lakefile, manifest or toolchain file differs; the certified commit only adds CI and the scripts in `certificates/tools/` |
+| Certified commit | `c223bd1c32035afe2a20e41ccd0494a706a7a5b0` (branch `main`) |
+| Lean sources | the certified commit is the `main` head itself; the certificate files were committed afterwards in a commit that changes no `.lean`, lakefile, manifest or toolchain file |
 | lean-toolchain | `leanprover/lean4:v4.34.0` |
 | Lean | Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release) |
 | Mathlib | none (no Mathlib dependency) |
-| Date (UTC) | 2026-11-16T19:20:13Z |
-| CI run | https://github.com/BenFrohman/NoetherLefschetz/actions/runs/43938014242 |
+| Date (UTC) | 2026-11-16T20:51:26Z |
+| CI run | https://github.com/BenFrohman/NoetherLefschetz/actions/runs/43953915314 |
 | `lake build` | `Build completed successfully (4 jobs).` ([build.log](build.log)) |
 | sorry / admit / native_decide / axiom scan | `RESULT: 0 hits` ([sorry-scan.txt](sorry-scan.txt)) |
 | `#print axioms` | `AUDIT PASS: 10 theorems in 2 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)` ([axioms.txt](axioms.txt)) |
@@ -46,5 +46,5 @@ Full `#print axioms` output (verbatim from `axioms.txt`):
 ## Rebuild
 
 ```
-git clone https://github.com/BenFrohman/NoetherLefschetz.git && cd NoetherLefschetz && git checkout f37292529f4f1395f1091267ab38b7f607057c97 && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+git clone https://github.com/BenFrohman/NoetherLefschetz.git && cd NoetherLefschetz && git checkout c223bd1c32035afe2a20e41ccd0494a706a7a5b0 && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
 ```
